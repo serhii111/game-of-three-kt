@@ -1,0 +1,31 @@
+spring:
+  application.name: "game-demo"
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: "consumer-group"
+      auto-offset-reset: earliest
+    bootstrap-servers: "localhost:9092"
+
+player:
+  current: "Player 1"
+  opponent: "Player 2"
+
+kafka:
+  topic:
+    winner:
+      current: "win1-topic"
+      opponent: "win2-topic"
+    listener: "player1-topic"
+    producer: "player2-topic"
+
+server:
+  port: 8081
+
+logging:
+  level:
+    ROOT: ERROR
